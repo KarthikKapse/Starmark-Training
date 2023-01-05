@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function onSave(){
+            if(!localStorage){
+                alert("Please Upgrade to HTML5");
+                return
+            }
+            const value=document.getElementById("txtSave").value;
+            localStorage.setItem("SomeName",value);
+        }
+
+        function onRetrieve(){
+            if(localStorage.getItem("SomeName")==null){
+                alert("No Data Is saved, Plz save")
+                return;
+            }
+            document.getElementById("pDisplay").innerHTML=localStorage.getItem("SomeName")
+        }
+       function save(){
+           const emp={};
+           emp.empId=document.getElementById("txtId").value;
+           emp.empName=document.getElementById("txtName").value;
+           emp.empAddr=document.getElementById("txtAddr").value;
+           const jsondata=JSON.stringify(emp);
+           localStorage.setItem("empRecords",jsondata);
+           document.getElementById("pDisplay").innerHTML=localStorage.getItem("empRecords")
+        }
+    </script>
+</head>
+<body>
+    <h1>Local storage In Html</h1><hr>
+    <div>
+        <p>
+            Enter The Sample Text To Store
+            <input type="text" id="txtSave">
+            <button onclick="onSave()">Save</button>
+        </p>
+        <div>
+            <button onclick="onRetrieve()">Click To View The Saved Data</button>
+            <p id="pDisplay"></p>
+        </div>
+    </div>
+    <div>
+        <h1>Details Of The Employee</h1>
+        <p>
+            Employee Id :
+            <input type="text" id="txtId">
+        </p>
+        <p>
+                Employee Name :
+                <input type="text" id="txtName">
+        </p>
+        <p>
+                Employee Address :
+                <input type="text" id="txtAddr">
+        </p>
+        <button onclick="save()">Save</button>
+        <div>
+                <button onclick="onRetrieve()">Click To View The Saved Data</button>
+                <p id="pDisplay"></p>
+            </div>
+    </div>
+</body>
+</html>

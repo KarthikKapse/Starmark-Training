@@ -1,0 +1,45 @@
+<script src="./ObjectBasic.js"></script>
+
+<script>
+    window.addEventListener("load", function(){
+        document.getElementById("txtId").value=obj.id;
+        document.getElementById("txtName").value=obj.name;
+        document.getElementById("txtAddr").value=obj.addr;
+    })
+</script>
+
+<script>
+    window.addEventListener("load", function(){
+        document.getElementById("empid").value=empobj.empid;
+        document.getElementById("empName").value=empobj.empname;
+        document.getElementById("empAddr").value=empobj.empaddr;
+    })
+</script>
+
+<!-- load is an event triggerd wen the document is loaded into the browser  -->
+<h1>Using single tone Object</h1>
+<hr>
+<div>
+    <p>
+        <input type="text" placeholder="id" id="txtId"><br><br>
+        <input type="text" placeholder="name" id="txtName"><br><br>
+        <input type="text" placeholder="address" id="txtAddr">
+    </p>
+    <p>
+        <button>Save</button>
+        <button>Clear</button>
+    </p>
+</div>
+<h1>Using Class Object</h1>
+<hr>
+<div>
+    <p>
+        <input type="text" placeholder="EmployeeId" id="empid"><br><br>
+        <input type="text" placeholder="EmployeeName" id="empName"><br><br>
+        <input type="text" placeholder="EmployeeAddress" id="empAddr"><br><br>
+    </p>
+    <p>
+        <button>Save</button>
+        <button>Clear</button>
+    </p>
+</div>

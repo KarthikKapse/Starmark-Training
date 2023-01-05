@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="crudoperation.js"></script>
+</head>
+<body>
+    <div>
+        <input type="text" id="txtName" placeholder="Enter Your Item">
+        <button onclick="onputItem()">+</button>
+        <button>x</button>
+        <button>Edit</button>
+        <p id="pDisplay">
+            <ol id="list"></ol>
+        </p>
+    </div>
+    <script>
+
+        const onDelete= function(id){
+            deleteItem(id);
+            populate();
+        }
+
+        const onUpate= function(id){
+            const name= prompt("Enter The Item Name");
+            updateItem(id, name);
+            alert("Item Name Updated successfully")
+            populate();
+        }
+
+        const populate = function(){
+            let ol=document.getElementById("list");
+            ol.innerHTML="";
+            const data=getAll();
+            for (let i = 0; i < data.length; i++) {
+                const element = `<li>${data[i]}
+                    <a href="#" onclick="onDelete(${i})">X</a>
+                    <a href="#" onclick="onUpate(${i})">Edit</a>
+                    </li>`;
+                ol.innerHTML +=element;               
+            }
+        }
+
+      const onputItem=function(){
+          const name=document.getElementById("txtName").value;
+          putItem(name);
+          alert("Item Added Successfully")
+          populate();
+      }
+
+        //call the addItem fumction 4 times with different value
+        putItem("Bat");
+        putItem("Wickets");
+        putItem("Bells");
+        putItem("Ball");
+
+        document.getElementById("pDisplay").innerHTML=items
+    </script>
+</body>
+</html>
